@@ -1,0 +1,136 @@
+﻿@model HomeVM
+@{
+    ViewData["Title"] = "Index";
+}
+
+<!-- Page Content-->
+<div class="container-fluid p-0">
+    <!-- About-->
+    @foreach (var item in Model.Abouts)
+    {
+        <section class="resume-section" id="about">
+            <div class="resume-section-content">
+                <h1 class="mb-0">
+                    @item.Name
+                    <span class="text-primary">@item.Surname</span>
+                </h1>
+                <div class="subheading mb-5">
+                    @item.Streat · Cheyenne Wells, CO 80810 · @item.Number·
+                    <a href="mailto:name@email.com">@item.Email</a>
+                </div>
+                <p class="lead mb-5">
+                    Voran zoram/p>
+                    <div class="social-icons">
+                        <a class="social-icon" href="#!"><i class="fab fa-linkedin-in"></i></a>
+                        <a class="social-icon" href="#!"><i class="fab fa-github"></i></a>
+                        <a class="social-icon" href="#!"><i class="fab fa-twitter"></i></a>
+                        <a class="social-icon" href="#!"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+            </div>
+        </section>
+    }
+
+    <hr class="m-0" />
+    <!-- Experience-->
+    <section class="resume-section" id="experience">
+        <div class="resume-section-content">
+            <h2 class="mb-5">Experience</h2>
+            @foreach (var item in Model.Experinces)
+            {
+                <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                    <div class="flex-grow-1">
+                        <h3 class="mb-0">@item.ExperinceName</h3>
+                        <div class="subheading mb-3">@item.Title</div>
+                        <p>@item.ExperinceAbout</p>
+                    </div>
+                    <div class="flex-shrink-0"><span class="text-primary">March 2013 - Present</span></div>
+                </div>
+
+            }
+
+        </div>
+    </section>
+    <hr class="m-0" />
+    <!-- Education-->
+    <section class="resume-section" id="education">
+        <div class="resume-section-content">
+            <h2 class="mb-5">Education</h2>
+            @foreach (var item in Model.Educations)
+            {
+                <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                    <div class="flex-grow-1">
+                        <h3 class="mb-0">@item.Name</h3>
+                        <div class="subheading mb-3">Bachelor of Science</div>
+                        <div>@item.specialty</div>
+                        <p>Ortalama: @item.OrtalamaBal</p>
+                    </div>
+                    <div class="flex-shrink-0"><span class="text-primary">@item.Bitirmevaxti</span></div>
+                </div>
+
+            }
+
+        </div>
+    </section>
+    <hr class="m-0" />
+    <!-- Skills-->
+    @foreach (var item in Model.Skills)
+    {
+        <section class="resume-section" id="skills">
+            <div class="resume-section-content">
+                <h2 class="mb-5">Skills</h2>
+                <div class="subheading mb-3">@item.name</div>
+                <ul class="list-inline dev-icons">
+                    @foreach (var ic in Model.Icons)
+                    {
+
+                    <li class="list-inline-item"><i class="fab @ic.Name"></i></li>
+                    }
+                 
+                </ul>
+                <div class="subheading mb-3">Workflow</div>
+                <ul class="fa-ul mb-0">
+
+                    <li>
+                        <span class="fa-li"><i class="fas fa-check"></i></span>
+                     @item.WORKFLOWs
+                    </li>
+                  
+                </ul>
+            </div>
+        </section>
+    }
+
+    <hr class="m-0" />
+    <!-- Interests-->
+    @foreach (var item in Model.Interests)
+    {
+
+    <section class="resume-section" id="interests">
+        <div class="resume-section-content">
+            <h2 class="mb-5">Interests</h2>
+
+            <p>@item.Text</p>
+           
+        </div>
+    </section>
+    }
+    <hr class="m-0" />
+    <!-- Awards-->
+    <section class="resume-section" id="awards">
+        <div class="resume-section-content">
+            <h2 class="mb-5">Awards & Certifications</h2>
+            <ul class="fa-ul mb-0">
+                @foreach (var item in Model.Certifkats)
+                {
+                    <li>
+                        <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>
+                       @item.Name
+                    </li>
+
+                }
+
+            </ul>
+        </div>
+    </section>
+</div>
+
